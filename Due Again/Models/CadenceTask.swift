@@ -34,7 +34,7 @@ final class CadenceTask {
         id: UUID = UUID(),
         title: String,
         notes: String = "",
-        categoryName: String = CadenceCategory.other.rawValue,
+        categoryName: String = TaskCategory.fallbackName,
         cadenceDays: Int,
         lastCompletedAt: Date? = nil,
         nextDueAt: Date? = nil,
@@ -48,7 +48,7 @@ final class CadenceTask {
         self.id = id
         self.title = title.trimmingCharacters(in: .whitespacesAndNewlines)
         self.notes = notes
-        self.categoryName = categoryName.isEmpty ? CadenceCategory.other.rawValue : categoryName
+        self.categoryName = categoryName.isEmpty ? TaskCategory.fallbackName : categoryName
         self.cadenceDays = safeCadenceDays
         self.lastCompletedAt = lastCompletedAt
         self.nextDueAt = nextDueAt ?? CadenceDateLogic.nextDueDate(
@@ -138,41 +138,10 @@ enum CadenceTaskStatus: String, CaseIterable {
     }
 }
 
-enum CadenceCategory: String, CaseIterable, Identifiable {
-    case home = "Home"
-    case plants = "Plants"
-    case pets = "Pets"
-    case health = "Health"
-    case car = "Car"
-    case cleaning = "Cleaning"
-    case other = "Other"
-
-    var id: String { rawValue }
-
-    var symbolName: String {
-        switch self {
-        case .home:
-            "house"
-        case .plants:
-            "leaf"
-        case .pets:
-            "pawprint"
-        case .health:
-            "heart"
-        case .car:
-            "car"
-        case .cleaning:
-            "sparkles"
-        case .other:
-            "circle.grid.2x2"
-        }
-    }
-}
-
 struct CadenceTaskDraft: Equatable {
     var title: String = ""
     var cadenceDays: Int = 7
-    var categoryName: String = CadenceCategory.home.rawValue
+    var categoryName: String = "Home"
     var notes: String = ""
     var notificationTime: DateComponents?
     var lastCompletedAt: Date?
@@ -190,7 +159,7 @@ struct CadenceTaskDraft: Equatable {
 
     var normalizedCategoryName: String {
         let trimmed = categoryName.trimmingCharacters(in: .whitespacesAndNewlines)
-        return trimmed.isEmpty ? CadenceCategory.other.rawValue : trimmed
+        return trimmed.isEmpty ? TaskCategory.fallbackName : trimmed
     }
 
     var canSave: Bool {

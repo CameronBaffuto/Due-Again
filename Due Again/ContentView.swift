@@ -5,6 +5,7 @@ import WidgetKit
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \CadenceTask.nextDueAt) private var tasks: [CadenceTask]
+    @Query(sort: \TaskCategory.sortOrder) private var categories: [TaskCategory]
 
     @State private var selectedTab: AppTab = .today
     @State private var sheetDestination: SheetDestination?
@@ -23,14 +24,17 @@ struct ContentView: View {
         .sheet(item: $sheetDestination) { destination in
             NavigationStack {
                 switch destination {
-                case .add:
-                    TaskEditorView(mode: .add)
+                case .add(let categoryName):
+                    TaskEditorView(mode: .add(categoryName: categoryName))
                 case .edit(let task):
                     TaskEditorView(mode: .edit(task))
                 }
             }
         }
-        .onAppear(perform: refreshWidgetSnapshot)
+        .onAppear {
+            prepareCategories()
+            refreshWidgetSnapshot()
+        }
         .onChange(of: tasks.map(\.updatedAt)) { _, _ in
             refreshWidgetSnapshot()
         }
@@ -42,24 +46,30 @@ struct ContentView: View {
         case .today:
             TodayView(
                 tasks: tasks,
-                onAdd: { sheetDestination = .add },
+                categories: categories,
+                onAdd: { sheetDestination = .add(categoryName: nil) },
                 onEdit: { sheetDestination = .edit($0) },
                 onComplete: complete
             )
-        case .comingSoon:
-            ComingSoonView(
+        case .categories:
+            CategoriesView(
                 tasks: tasks,
-                onAdd: { sheetDestination = .add },
+                categories: categories,
+                onAdd: { sheetDestination = .add(categoryName: $0) },
                 onEdit: { sheetDestination = .edit($0) },
-                onComplete: complete
+                onComplete: complete,
+                onArchive: archive,
+                onDelete: delete
             )
         case .all:
             AllTasksView(
                 tasks: tasks,
-                onAdd: { sheetDestination = .add },
+                categories: categories,
+                onAdd: { sheetDestination = .add(categoryName: nil) },
                 onEdit: { sheetDestination = .edit($0) },
                 onComplete: complete,
-                onArchive: archive
+                onArchive: archive,
+                onDelete: delete
             )
         case .settings:
             SettingsView()
@@ -82,12 +92,34 @@ struct ContentView: View {
         CadenceNotificationScheduler.shared.cancelNotification(for: task)
     }
 
+    private func delete(_ task: CadenceTask) {
+        let deletedTaskID = task.id
+        CadenceNotificationScheduler.shared.cancelNotification(for: task)
+        modelContext.delete(task)
+
+        do {
+            try modelContext.save()
+            WidgetSnapshotStore.write(from: tasks.filter { $0.id != deletedTaskID })
+            WidgetCenter.shared.reloadAllTimelines()
+        } catch {
+            assertionFailure("Unable to delete task: \(error)")
+        }
+    }
+
     private func saveChanges() {
         do {
             try modelContext.save()
             refreshWidgetSnapshot()
         } catch {
             assertionFailure("Unable to save task changes: \(error)")
+        }
+    }
+
+    private func prepareCategories() {
+        do {
+            try CategoryCatalog.bootstrap(in: modelContext, categories: categories, tasks: tasks)
+        } catch {
+            assertionFailure("Unable to prepare categories: \(error)")
         }
     }
 
@@ -99,7 +131,7 @@ struct ContentView: View {
 
 enum AppTab: String, CaseIterable, Identifiable {
     case today
-    case comingSoon
+    case categories
     case all
     case settings
 
@@ -110,8 +142,8 @@ enum AppTab: String, CaseIterable, Identifiable {
         switch self {
         case .today:
             Label("Today", systemImage: "sun.max")
-        case .comingSoon:
-            Label("Coming Soon", systemImage: "calendar")
+        case .categories:
+            Label("Categories", systemImage: "square.grid.2x2")
         case .all:
             Label("All", systemImage: "tray.full")
         case .settings:
@@ -121,13 +153,13 @@ enum AppTab: String, CaseIterable, Identifiable {
 }
 
 enum SheetDestination: Identifiable {
-    case add
+    case add(categoryName: String?)
     case edit(CadenceTask)
 
     var id: String {
         switch self {
-        case .add:
-            "add"
+        case .add(let categoryName):
+            "add-\(categoryName ?? "none")"
         case .edit(let task):
             "edit-\(task.id.uuidString)"
         }

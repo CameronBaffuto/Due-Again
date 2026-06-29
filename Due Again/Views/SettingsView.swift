@@ -29,6 +29,12 @@ struct SettingsView: View {
                 Toggle("Show archived in All", isOn: $showArchivedInAll)
             }
 
+            Section("Organization") {
+                NavigationLink(value: SettingsRoute.categories) {
+                    Label("Categories", systemImage: "square.grid.2x2")
+                }
+            }
+
             Section("Data") {
                 LabeledContent("Storage", value: "On this iPhone")
                 LabeledContent("Sync", value: "Off")
@@ -36,5 +42,11 @@ struct SettingsView: View {
             }
         }
         .navigationTitle("Settings")
+        .navigationDestination(for: SettingsRoute.self) { route in
+            switch route {
+            case .categories:
+                CategoryManagementView()
+            }
+        }
     }
 }

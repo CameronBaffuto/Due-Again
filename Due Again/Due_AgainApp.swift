@@ -18,7 +18,7 @@ struct Due_AgainApp: App {
     }
 
     private static var modelContainer: ModelContainer {
-        let schema = Schema([CadenceTask.self])
+        let schema = Schema([CadenceTask.self, TaskCategory.self])
         let isUITestMode = ProcessInfo.processInfo.arguments.contains("UITestMode")
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: isUITestMode)
 

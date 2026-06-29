@@ -1,4 +1,5 @@
 import XCTest
+import SwiftData
 @testable import Due_Again
 
 final class CadenceTaskTests: XCTestCase {
@@ -106,6 +107,53 @@ final class CadenceTaskTests: XCTestCase {
         XCTAssertEqual(snapshot.dueCount, 1)
         XCTAssertEqual(snapshot.nextTaskTitle, "Water cactus")
         XCTAssertEqual(snapshot.nextTaskDueText, "Due today")
+    }
+
+    @MainActor
+    func testCategoryBootstrapCreatesDefaultsAndAdoptsLegacyCategory() throws {
+        let container = try makeContainer()
+        let context = container.mainContext
+        let task = CadenceTask(title: "Trim herbs", categoryName: "Garden", cadenceDays: 10)
+        context.insert(task)
+        try context.save()
+
+        try CategoryCatalog.bootstrap(in: context, categories: [], tasks: [task])
+
+        let categories = try context.fetch(FetchDescriptor<TaskCategory>())
+        XCTAssertTrue(categories.contains { $0.name == "Home" })
+        XCTAssertTrue(categories.contains { $0.name == "Garden" })
+        XCTAssertEqual(categories.filter(\.isFallback).map(\.name), [TaskCategory.fallbackName])
+    }
+
+    @MainActor
+    func testDeletingCategoryMovesTasksToOther() throws {
+        let container = try makeContainer()
+        let context = container.mainContext
+        let other = TaskCategory(name: TaskCategory.fallbackName, sortOrder: 0, isFallback: true)
+        let pets = TaskCategory(name: "Pets", symbolName: "pawprint", sortOrder: 1)
+        let task = CadenceTask(title: "Wash dog bed", categoryName: "Pets", cadenceDays: 14)
+        context.insert(other)
+        context.insert(pets)
+        context.insert(task)
+        try context.save()
+
+        try CategoryCatalog.delete(
+            pets,
+            categories: [other, pets],
+            tasks: [task],
+            in: context
+        )
+
+        XCTAssertEqual(task.categoryName, TaskCategory.fallbackName)
+        let categories = try context.fetch(FetchDescriptor<TaskCategory>())
+        XCTAssertFalse(categories.contains { $0.name == "Pets" })
+    }
+
+    @MainActor
+    private func makeContainer() throws -> ModelContainer {
+        let schema = Schema([CadenceTask.self, TaskCategory.self])
+        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+        return try ModelContainer(for: schema, configurations: [configuration])
     }
 
     private func date(year: Int, month: Int, day: Int, hour: Int = 0, minute: Int = 0) -> Date {
