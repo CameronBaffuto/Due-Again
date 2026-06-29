@@ -48,7 +48,6 @@ struct TodayView: View {
             .padding(.vertical, 18)
         }
         .background(Color.dueAgainBackground)
-        .navigationTitle("Due Again")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: onAdd) {
