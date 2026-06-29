@@ -2,6 +2,7 @@ import SwiftUI
 
 struct TodayView: View {
     let tasks: [CadenceTask]
+    let categories: [TaskCategory]
     let onAdd: () -> Void
     let onEdit: (CadenceTask) -> Void
     let onComplete: (CadenceTask) -> Void
@@ -31,16 +32,38 @@ struct TodayView: View {
                     if activeTasks.isEmpty {
                         EmptyCadenceView(onAdd: onAdd)
                     } else {
-                        AllCaughtUpView(nextTasks: nextTasks, onAdd: onAdd)
+                        AllCaughtUpView(nextTasks: nextTasks, categories: categories, onAdd: onAdd)
                     }
                 } else {
                     ForEach(dueTasks) { task in
                         CadenceTaskCard(
                             task: task,
+                            categorySymbol: CategoryCatalog.symbol(for: task.categoryName, in: categories),
                             prominence: .ready,
                             onDone: { onComplete(task) },
                             onEdit: { onEdit(task) }
                         )
+                    }
+
+                    if !nextTasks.isEmpty {
+                        Text("Up Next")
+                            .font(.title3.bold())
+                            .foregroundStyle(Color.dueAgainInk)
+                            .padding(.top, 6)
+
+                        VStack(spacing: 0) {
+                            ForEach(nextTasks) { task in
+                                NextDueRow(
+                                    task: task,
+                                    categorySymbol: CategoryCatalog.symbol(for: task.categoryName, in: categories)
+                                )
+
+                                if task.id != nextTasks.last?.id {
+                                    Divider()
+                                }
+                            }
+                        }
+                        .background(Color.dueAgainSurface, in: RoundedRectangle(cornerRadius: 8))
                     }
                 }
             }
@@ -50,10 +73,7 @@ struct TodayView: View {
         .background(Color.dueAgainBackground)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(action: onAdd) {
-                    Image(systemName: "plus")
-                }
-                .accessibilityLabel("Add cadence")
+                Button("Add cadence", systemImage: "plus", action: onAdd)
             }
         }
     }
@@ -140,6 +160,7 @@ struct EmptyCadenceView: View {
 
 private struct AllCaughtUpView: View {
     let nextTasks: [CadenceTask]
+    let categories: [TaskCategory]
     let onAdd: () -> Void
 
     var body: some View {
@@ -155,7 +176,10 @@ private struct AllCaughtUpView: View {
             if !nextTasks.isEmpty {
                 VStack(spacing: 0) {
                     ForEach(nextTasks) { task in
-                        NextDueRow(task: task)
+                        NextDueRow(
+                            task: task,
+                            categorySymbol: CategoryCatalog.symbol(for: task.categoryName, in: categories)
+                        )
 
                         if task.id != nextTasks.last?.id {
                             Divider()
@@ -184,10 +208,11 @@ private struct AllCaughtUpView: View {
 
 private struct NextDueRow: View {
     let task: CadenceTask
+    let categorySymbol: String
 
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: CadenceCategory(rawValue: task.categoryName)?.symbolName ?? CadenceCategory.other.symbolName)
+            Image(systemName: categorySymbol)
                 .foregroundStyle(Color.dueAgainBlue)
                 .frame(width: 24)
 

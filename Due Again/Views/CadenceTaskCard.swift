@@ -8,82 +8,92 @@ struct CadenceTaskCard: View {
     }
 
     let task: CadenceTask
+    var categorySymbol = "circle.grid.2x2"
     var prominence: Prominence = .quiet
     let onDone: () -> Void
     let onEdit: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
-            HStack(alignment: .top, spacing: 12) {
-                CountdownRing(daysRemaining: task.daysRemaining(), prominence: prominence)
+            Button(action: onEdit) {
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack(alignment: .top, spacing: 12) {
+                        Image(systemName: categorySymbol)
+                            .font(.title3)
+                            .foregroundStyle(statusColor)
+                            .frame(width: 42, height: 42)
+                            .background(statusFill, in: RoundedRectangle(cornerRadius: 8))
+                            .accessibilityHidden(true)
 
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(task.title)
-                        .font(.headline)
-                        .foregroundStyle(prominence == .muted ? Color.dueAgainSecondaryText : Color.dueAgainInk)
-                        .lineLimit(2)
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(task.title)
+                                .font(.headline)
+                                .foregroundStyle(titleColor)
+                                .multilineTextAlignment(.leading)
 
-                    HStack(spacing: 8) {
-                        Label(task.categoryName, systemImage: categorySymbol)
-                        Text(DisplayText.cadence(task.cadenceDays))
+                            Text(task.categoryName)
+                                .font(.subheadline)
+                                .foregroundStyle(Color.dueAgainSecondaryText)
+                        }
+
+                        Spacer(minLength: 8)
+
+                        Image(systemName: "chevron.right")
+                            .font(.subheadline.bold())
+                            .foregroundStyle(Color.dueAgainSecondaryText)
+                            .accessibilityHidden(true)
                     }
-                    .font(.caption.weight(.medium))
-                    .foregroundStyle(Color.dueAgainSecondaryText)
-                    .lineLimit(1)
+
+                    Label(DisplayText.countdown(for: task), systemImage: statusSymbol)
+                        .font(.subheadline.bold())
+                        .foregroundStyle(statusColor)
                 }
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityHint("Opens cadence details")
+
+            Divider()
+
+            HStack(alignment: .center, spacing: 12) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Label(DisplayText.cadence(task.cadenceDays), systemImage: "arrow.triangle.2.circlepath")
+                    Label(DisplayText.lastDone(task.lastCompletedAt), systemImage: "clock.arrow.circlepath")
+                }
+                .font(.subheadline)
+                .foregroundStyle(Color.dueAgainSecondaryText)
 
                 Spacer(minLength: 8)
 
-                Text(DisplayText.countdown(for: task))
-                    .font(.caption.weight(.bold))
-                    .foregroundStyle(countdownColor)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 6)
-                    .background(countdownFill, in: Capsule())
-            }
-
-            HStack(spacing: 10) {
-                Text(DisplayText.lastDone(task.lastCompletedAt))
-                    .font(.caption)
-                    .foregroundStyle(Color.dueAgainSecondaryText)
-
-                Spacer()
-
-                Button(action: onEdit) {
-                    Image(systemName: "slider.horizontal.3")
-                }
-                .buttonStyle(.borderless)
-                .accessibilityLabel("Edit \(task.title)")
-
                 Button(action: onDone) {
-                    Label("Done", systemImage: "checkmark")
+                    Label("Done", systemImage: "checkmark.circle.fill")
                         .labelStyle(.titleAndIcon)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(Color.dueAgainGreen)
-                .disabled(task.isArchived)
-                .accessibilityIdentifier("done-\(task.id.uuidString)")
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color.dueAgainGreen)
+                    .disabled(task.isArchived)
+                    .accessibilityIdentifier("done-\(task.id.uuidString)")
             }
         }
         .padding(16)
-        .background(cardBackground, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+        .background(Color.dueAgainSurface, in: RoundedRectangle(cornerRadius: 8))
         .overlay {
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .strokeBorder(Color.dueAgainSeparator.opacity(0.22))
+            RoundedRectangle(cornerRadius: 8)
+                .strokeBorder(borderColor)
         }
         .opacity(task.isArchived ? 0.65 : 1)
+        .accessibilityElement(children: .contain)
     }
 
-    private var cardBackground: Color {
-        switch prominence {
-        case .ready:
-            Color.dueAgainSurface
-        case .quiet, .muted:
-            Color.dueAgainSurface
-        }
+    private var titleColor: Color {
+        prominence == .muted ? Color.dueAgainSecondaryText : Color.dueAgainInk
     }
 
-    private var countdownColor: Color {
+    private var borderColor: Color {
+        prominence == .ready ? statusColor.opacity(0.4) : Color.dueAgainSeparator.opacity(0.22)
+    }
+
+    private var statusColor: Color {
         switch task.status() {
         case .overdue:
             Color.dueAgainClay
@@ -96,70 +106,7 @@ struct CadenceTaskCard: View {
         }
     }
 
-    private var categorySymbol: String {
-        CadenceCategory(rawValue: task.categoryName)?.symbolName ?? CadenceCategory.other.symbolName
-    }
-}
-
-private struct CountdownRing: View {
-    let daysRemaining: Int
-    let prominence: CadenceTaskCard.Prominence
-
-    var body: some View {
-        ZStack {
-            Circle()
-                .stroke(Color.dueAgainSeparator.opacity(0.18), lineWidth: 5)
-
-            Circle()
-                .trim(from: 0, to: progress)
-                .stroke(ringColor, style: StrokeStyle(lineWidth: 5, lineCap: .round))
-                .rotationEffect(.degrees(-90))
-
-            Text(centerText)
-                .font(.caption2.weight(.bold))
-                .monospacedDigit()
-                .foregroundStyle(ringColor)
-                .minimumScaleFactor(0.7)
-        }
-        .frame(width: 46, height: 46)
-        .accessibilityHidden(true)
-    }
-
-    private var progress: Double {
-        if daysRemaining <= 0 {
-            return 1
-        }
-
-        return max(0.18, min(1, Double(14 - min(daysRemaining, 14)) / 14))
-    }
-
-    private var centerText: String {
-        if daysRemaining < 0 {
-            return "+\(abs(daysRemaining))"
-        }
-
-        return "\(daysRemaining)"
-    }
-
-    private var ringColor: Color {
-        if prominence == .muted {
-            return Color.dueAgainSecondaryText
-        }
-
-        if daysRemaining < 0 {
-            return Color.dueAgainClay
-        }
-
-        if daysRemaining == 0 {
-            return Color.dueAgainGreen
-        }
-
-        return Color.dueAgainBlue
-    }
-}
-
-private extension CadenceTaskCard {
-    var countdownFill: Color {
+    private var statusFill: Color {
         switch task.status() {
         case .overdue:
             Color.dueAgainClayFill
@@ -169,6 +116,19 @@ private extension CadenceTaskCard {
             Color.dueAgainBlueFill
         case .archived:
             Color.dueAgainElevatedSurface
+        }
+    }
+
+    private var statusSymbol: String {
+        switch task.status() {
+        case .overdue:
+            "exclamationmark.circle.fill"
+        case .dueToday:
+            "checkmark.circle.fill"
+        case .upcoming:
+            "calendar"
+        case .archived:
+            "archivebox"
         }
     }
 }

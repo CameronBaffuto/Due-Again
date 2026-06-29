@@ -3,7 +3,7 @@ import SwiftUI
 
 struct TaskEditorView: View {
     enum Mode {
-        case add
+        case add(categoryName: String?)
         case edit(CadenceTask)
 
         var title: String {
@@ -19,6 +19,7 @@ struct TaskEditorView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \CadenceTask.nextDueAt) private var allTasks: [CadenceTask]
+    @Query(sort: \TaskCategory.sortOrder) private var categories: [TaskCategory]
 
     let mode: Mode
 
@@ -33,8 +34,12 @@ struct TaskEditorView: View {
 
         let initialDraft: CadenceTaskDraft
         switch mode {
-        case .add:
-            initialDraft = CadenceTaskDraft()
+        case .add(let categoryName):
+            var draft = CadenceTaskDraft()
+            if let categoryName {
+                draft.categoryName = categoryName
+            }
+            initialDraft = draft
         case .edit(let task):
             initialDraft = CadenceTaskDraft(task: task)
         }
@@ -64,9 +69,9 @@ struct TaskEditorView: View {
                 .accessibilityIdentifier("cadence-days")
 
                 Picker("Category", selection: $draft.categoryName) {
-                    ForEach(CadenceCategory.allCases) { category in
-                        Label(category.rawValue, systemImage: category.symbolName)
-                            .tag(category.rawValue)
+                    ForEach(categories) { category in
+                        Label(category.name, systemImage: category.symbolName)
+                            .tag(category.name)
                     }
                 }
             }
@@ -98,6 +103,14 @@ struct TaskEditorView: View {
         }
         .navigationTitle(mode.title)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            let hasSelectedCategory = categories.contains {
+                CategoryCatalog.normalizedKey($0.name) == CategoryCatalog.normalizedKey(draft.categoryName)
+            }
+            if !hasSelectedCategory {
+                draft.categoryName = categories.first?.name ?? TaskCategory.fallbackName
+            }
+        }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Cancel") {

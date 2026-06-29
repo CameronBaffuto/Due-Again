@@ -4,7 +4,7 @@ import Foundation
 enum PreviewData {
     @MainActor
     static var container: ModelContainer {
-        let schema = Schema([CadenceTask.self])
+        let schema = Schema([CadenceTask.self, TaskCategory.self])
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
         let container = try! ModelContainer(for: schema, configurations: [configuration])
 
@@ -16,6 +16,16 @@ enum PreviewData {
         ]
 
         tasks.forEach { container.mainContext.insert($0) }
+        for (index, definition) in CategoryCatalog.defaults.enumerated() {
+            container.mainContext.insert(
+                TaskCategory(
+                    name: definition.name,
+                    symbolName: definition.symbol,
+                    sortOrder: index,
+                    isFallback: definition.name == TaskCategory.fallbackName
+                )
+            )
+        }
         return container
     }
 }
