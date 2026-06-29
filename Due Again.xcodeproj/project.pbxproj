@@ -1,0 +1,756 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5DA00342FEA300000000034 /* Due AgainWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E5DA00032FEA300000000003 /* Due AgainWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5DA01022FEA300000000102 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5E0B7972FEA18A6003E75F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5E0B79E2FEA18A6003E75F6;
+			remoteInfo = "Due Again";
+		};
+		E5DA02022FEA300000000202 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5E0B7972FEA18A6003E75F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5E0B79E2FEA18A6003E75F6;
+			remoteInfo = "Due Again";
+		};
+		E5DA03032FEA300000000303 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5E0B7972FEA18A6003E75F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5DA03002FEA300000000300;
+			remoteInfo = "Due AgainWidget";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E5DA00332FEA300000000033 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E5DA00342FEA300000000034 /* Due AgainWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E5DA00012FEA300000000001 /* Due AgainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Due AgainTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5DA00022FEA300000000002 /* Due AgainUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Due AgainUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5DA00032FEA300000000003 /* Due AgainWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Due AgainWidget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5E0B79F2FEA18A6003E75F6 /* Due Again.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Due Again.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E5DA00072FEA300000000007 /* Exceptions for "Due AgainWidget" folder in "Due AgainWidget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E5DA03002FEA300000000300 /* Due AgainWidget */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E5DA00042FEA300000000004 /* Due AgainTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Due AgainTests";
+			sourceTree = "<group>";
+		};
+		E5DA00052FEA300000000005 /* Due AgainUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Due AgainUITests";
+			sourceTree = "<group>";
+		};
+		E5DA00062FEA300000000006 /* Due AgainWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E5DA00072FEA300000000007 /* Exceptions for "Due AgainWidget" folder in "Due AgainWidget" target */,
+			);
+			path = "Due AgainWidget";
+			sourceTree = "<group>";
+		};
+		E5E0B7A12FEA18A6003E75F6 /* Due Again */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Due Again";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5DA00112FEA300000000011 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5DA00212FEA300000000021 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5DA00312FEA300000000031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5E0B79C2FEA18A6003E75F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5E0B7962FEA18A6003E75F6 = {
+			isa = PBXGroup;
+			children = (
+				E5E0B7A12FEA18A6003E75F6 /* Due Again */,
+				E5DA00042FEA300000000004 /* Due AgainTests */,
+				E5DA00052FEA300000000005 /* Due AgainUITests */,
+				E5DA00062FEA300000000006 /* Due AgainWidget */,
+				E5E0B7A02FEA18A6003E75F6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5E0B7A02FEA18A6003E75F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0B79F2FEA18A6003E75F6 /* Due Again.app */,
+				E5DA00012FEA300000000001 /* Due AgainTests.xctest */,
+				E5DA00022FEA300000000002 /* Due AgainUITests.xctest */,
+				E5DA00032FEA300000000003 /* Due AgainWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5DA01002FEA300000000100 /* Due AgainTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5DA01122FEA300000000112 /* Build configuration list for PBXNativeTarget "Due AgainTests" */;
+			buildPhases = (
+				E5DA00102FEA300000000010 /* Sources */,
+				E5DA00112FEA300000000011 /* Frameworks */,
+				E5DA00122FEA300000000012 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5DA01012FEA300000000101 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E5DA00042FEA300000000004 /* Due AgainTests */,
+			);
+			name = "Due AgainTests";
+			packageProductDependencies = (
+			);
+			productName = "Due AgainTests";
+			productReference = E5DA00012FEA300000000001 /* Due AgainTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5DA02002FEA300000000200 /* Due AgainUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5DA02122FEA300000000212 /* Build configuration list for PBXNativeTarget "Due AgainUITests" */;
+			buildPhases = (
+				E5DA00202FEA300000000020 /* Sources */,
+				E5DA00212FEA300000000021 /* Frameworks */,
+				E5DA00222FEA300000000022 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5DA02012FEA300000000201 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E5DA00052FEA300000000005 /* Due AgainUITests */,
+			);
+			name = "Due AgainUITests";
+			packageProductDependencies = (
+			);
+			productName = "Due AgainUITests";
+			productReference = E5DA00022FEA300000000002 /* Due AgainUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E5DA03002FEA300000000300 /* Due AgainWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5DA03122FEA300000000312 /* Build configuration list for PBXNativeTarget "Due AgainWidget" */;
+			buildPhases = (
+				E5DA00302FEA300000000030 /* Sources */,
+				E5DA00312FEA300000000031 /* Frameworks */,
+				E5DA00322FEA300000000032 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E5DA00062FEA300000000006 /* Due AgainWidget */,
+			);
+			name = "Due AgainWidget";
+			packageProductDependencies = (
+			);
+			productName = "Due AgainWidget";
+			productReference = E5DA00032FEA300000000003 /* Due AgainWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E5E0B79E2FEA18A6003E75F6 /* Due Again */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5E0B7AA2FEA18A8003E75F6 /* Build configuration list for PBXNativeTarget "Due Again" */;
+			buildPhases = (
+				E5E0B79B2FEA18A6003E75F6 /* Sources */,
+				E5E0B79C2FEA18A6003E75F6 /* Frameworks */,
+				E5E0B79D2FEA18A6003E75F6 /* Resources */,
+				E5DA00332FEA300000000033 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5DA03022FEA300000000302 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E5E0B7A12FEA18A6003E75F6 /* Due Again */,
+			);
+			name = "Due Again";
+			packageProductDependencies = (
+			);
+			productName = "Due Again";
+			productReference = E5E0B79F2FEA18A6003E75F6 /* Due Again.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5E0B7972FEA18A6003E75F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					E5DA01002FEA300000000100 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = E5E0B79E2FEA18A6003E75F6;
+					};
+					E5DA02002FEA300000000200 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = E5E0B79E2FEA18A6003E75F6;
+					};
+					E5DA03002FEA300000000300 = {
+						CreatedOnToolsVersion = 26.3;
+					};
+					E5E0B79E2FEA18A6003E75F6 = {
+						CreatedOnToolsVersion = 26.3;
+					};
+				};
+			};
+			buildConfigurationList = E5E0B79A2FEA18A6003E75F6 /* Build configuration list for PBXProject "Due Again" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5E0B7962FEA18A6003E75F6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E5E0B7A02FEA18A6003E75F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5E0B79E2FEA18A6003E75F6 /* Due Again */,
+				E5DA01002FEA300000000100 /* Due AgainTests */,
+				E5DA02002FEA300000000200 /* Due AgainUITests */,
+				E5DA03002FEA300000000300 /* Due AgainWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5DA00122FEA300000000012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5DA00222FEA300000000022 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5DA00322FEA300000000032 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5E0B79D2FEA18A6003E75F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5DA00102FEA300000000010 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5DA00202FEA300000000020 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5DA00302FEA300000000030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5E0B79B2FEA18A6003E75F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5DA01012FEA300000000101 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5E0B79E2FEA18A6003E75F6 /* Due Again */;
+			targetProxy = E5DA01022FEA300000000102 /* PBXContainerItemProxy */;
+		};
+		E5DA02012FEA300000000201 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5E0B79E2FEA18A6003E75F6 /* Due Again */;
+			targetProxy = E5DA02022FEA300000000202 /* PBXContainerItemProxy */;
+		};
+		E5DA03022FEA300000000302 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5DA03002FEA300000000300 /* Due AgainWidget */;
+			targetProxy = E5DA03032FEA300000000303 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E5DA01102FEA300000000110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cambaffuto.Due-AgainTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Due Again.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Due Again";
+				TEST_TARGET_NAME = "Due Again";
+			};
+			name = Debug;
+		};
+		E5DA01112FEA300000000111 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cambaffuto.Due-AgainTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Due Again.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Due Again";
+				TEST_TARGET_NAME = "Due Again";
+			};
+			name = Release;
+		};
+		E5DA02102FEA300000000210 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cambaffuto.Due-AgainUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Due Again";
+			};
+			name = Debug;
+		};
+		E5DA02112FEA300000000211 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cambaffuto.Due-AgainUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Due Again";
+			};
+			name = Release;
+		};
+		E5DA03102FEA300000000310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = "Due AgainWidget/Due_AgainWidget.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Due AgainWidget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cambaffuto.Due-Again.Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5DA03112FEA300000000311 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = "Due AgainWidget/Due_AgainWidget.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Due AgainWidget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cambaffuto.Due-Again.Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E5E0B7A82FEA18A8003E75F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E5E0B7A92FEA18A8003E75F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5E0B7AB2FEA18A8003E75F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Due Again/Support/Due_Again.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cambaffuto.Due-Again";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5E0B7AC2FEA18A8003E75F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Due Again/Support/Due_Again.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2934Q3ECE9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cambaffuto.Due-Again";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5DA01122FEA300000000112 /* Build configuration list for PBXNativeTarget "Due AgainTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5DA01102FEA300000000110 /* Debug */,
+				E5DA01112FEA300000000111 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5DA02122FEA300000000212 /* Build configuration list for PBXNativeTarget "Due AgainUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5DA02102FEA300000000210 /* Debug */,
+				E5DA02112FEA300000000211 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5DA03122FEA300000000312 /* Build configuration list for PBXNativeTarget "Due AgainWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5DA03102FEA300000000310 /* Debug */,
+				E5DA03112FEA300000000311 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5E0B79A2FEA18A6003E75F6 /* Build configuration list for PBXProject "Due Again" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5E0B7A82FEA18A8003E75F6 /* Debug */,
+				E5E0B7A92FEA18A8003E75F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5E0B7AA2FEA18A8003E75F6 /* Build configuration list for PBXNativeTarget "Due Again" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5E0B7AB2FEA18A8003E75F6 /* Debug */,
+				E5E0B7AC2FEA18A8003E75F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5E0B7972FEA18A6003E75F6 /* Project object */;
+}
